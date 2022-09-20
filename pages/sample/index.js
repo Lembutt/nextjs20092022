@@ -1,0 +1,15 @@
+const plain = () => null;
+
+export const getServerSideProps = async ({res}) => {
+  res.setHeader('Content-Type', 'text/plain; charset=UTF-8');
+  res.setHeader('X-Author', 'lembutt');
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.end(`
+    function task(x) {
+      return this * this * x;
+    }
+  `);
+  return { props: {} }
+}
+
+export default plain;
